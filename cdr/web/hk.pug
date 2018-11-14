@@ -3,83 +3,63 @@
     header
       span.widget-icon
         i.fa.fa-table
-      h2 AMC - Command and Data Handling
+      h2 CS - Housekeeping
     div.widget-body.table-responsive
       table.table.table-condensed
         tbody
           tr
             th Cmd Count
             td
-              div(data-cdr={tlm:[{name:'/AMC/AMC_HkTlm_t/usCmdCnt'}],indicator:'text'}) ---
+              div(data-cdr={tlm:[{name:'/CS/CS_HkPacket_t/CmdCounter'}],indicator:'text'}) ---
           tr
             th Error Count
             td
-              div(data-cdr={tlm:[{name:'/AMC/AMC_HkTlm_t/usCmdErrCnt'}],indicator:'text'}) ---
+              div(data-cdr={tlm:[{name:'/CS/CS_HkPacket_t/CmdErrCounter'}],indicator:'text'}) ---
           tr
-            th Output 0
+            th State
             td
-              span(data-cdr={tlm: [{name:'/AMC/AMC_HkTlm_t/Output[0]'}], indicator:'text'}) ---
+              div(data-cdr={tlm:[{name:'/CS/CS_HkPacket_t/ChecksumState'}],indicator:'text'}) ---
+            td
+              .btn-group(role="group")
+                button.btn.cdr-outline-primary(data-cdr={cmd:{name:'/CS/EnableAllCS'},indicator:'cmd'}) Enable 
+                button.btn.cdr-outline-primary(data-cdr={cmd:{name:'/CS/DisableAllCS'},indicator:'cmd'}) Disable
           tr
-            th Output 1
+            th Recompute In Progress
             td
-              span(data-cdr={tlm: [{name:'/AMC/AMC_HkTlm_t/Output[1]'}], indicator:'text'}) ---
+              span(data-cdr={tlm: [{name:'/CS/CS_HkPacket_t/RecomputeInProgress'}], indicator:'text'}) ---
           tr
-            th Output 2
+            th OneShot In Progress
             td
-              span(data-cdr={tlm: [{name:'/AMC/AMC_HkTlm_t/Output[2]'}], indicator:'text'}) ---
+              span(data-cdr={tlm: [{name:'/CS/CS_HkPacket_t/OneShotInProgress'}], indicator:'text'}) ---
+            td
+              .btn-group(role="group")
+                button.btn.cdr-outline-primary(data-cdr={cmd:{name:'/CS/CS_OneShotCmd_t'},indicator:'cmd'}) Start 
+                button.btn.cdr-outline-primary(data-cdr={cmd:{name:'/CS/CancelOneShot'},indicator:'cmd'}) Cancel
           tr
-            th Output 3
+            th Current Entry In Table
             td
-              span(data-cdr={tlm: [{name:'/AMC/AMC_HkTlm_t/Output[3]'}], indicator:'text'}) ---
+              span(data-cdr={tlm: [{name:'/CS/CS_HkPacket_t/CurrentEntryInTable'}], indicator:'text'}) ---
           tr
-            th Output 4
+            th Last One Shot Address
             td
-              span(data-cdr={tlm: [{name:'/AMC/AMC_HkTlm_t/Output[4]'}], indicator:'text'}) ---
+              span(data-cdr={tlm: [{name:'/CS/CS_HkPacket_t/LastOneShotAddress'}], indicator:'text'}) ---
           tr
-            th Output 5
+            th Last One Shot Size
             td
-              span(data-cdr={tlm: [{name:'/AMC/AMC_HkTlm_t/Output[5]'}], indicator:'text'}) ---
+              span(data-cdr={tlm: [{name:'/CS/CS_HkPacket_t/LastOneShotSize'}], indicator:'text'}) ---
           tr
-            th Output 6
+            th Last One Shot Max Bytes Per Cycle
             td
-              span(data-cdr={tlm: [{name:'/AMC/AMC_HkTlm_t/Output[6]'}], indicator:'text'}) ---
+              span(data-cdr={tlm: [{name:'/CS/CS_HkPacket_t/LastOneShotMaxBytesPerCycle'}], indicator:'text'}) ---
           tr
-            th Output 7
+            th Last One Shot Checksum
             td
-              span(data-cdr={tlm: [{name:'/AMC/AMC_HkTlm_t/Output[7]'}], indicator:'text'}) ---
+              span(data-cdr={tlm: [{name:'/CS/CS_HkPacket_t/LastOneShotChecksum'}], indicator:'text'}) ---
           tr
-            th Output 8
+            th Pass Counter
             td
-              span(data-cdr={tlm: [{name:'/AMC/AMC_HkTlm_t/Output[8]'}], indicator:'text'}) ---
-          tr
-            th Output 9
-            td
-              span(data-cdr={tlm: [{name:'/AMC/AMC_HkTlm_t/Output[9]'}], indicator:'text'}) ---
-          tr
-            th Output 10
-            td
-              span(data-cdr={tlm: [{name:'/AMC/AMC_HkTlm_t/Output[10]'}], indicator:'text'}) ---
-          tr
-            th Output 11
-            td
-              span(data-cdr={tlm: [{name:'/AMC/AMC_HkTlm_t/Output[11]'}], indicator:'text'}) ---
-          tr
-            th Output 12
-            td
-              span(data-cdr={tlm: [{name:'/AMC/AMC_HkTlm_t/Output[12]'}], indicator:'text'}) ---
-          tr
-            th Output 13
-            td
-              span(data-cdr={tlm: [{name:'/AMC/AMC_HkTlm_t/Output[13]'}], indicator:'text'}) ---
-          tr
-            th Output 14
-            td
-              span(data-cdr={tlm: [{name:'/AMC/AMC_HkTlm_t/Output[14]'}], indicator:'text'}) ---
-          tr
-            th Output 15
-            td
-              span(data-cdr={tlm: [{name:'/AMC/AMC_HkTlm_t/Output[15]'}], indicator:'text'}) ---
+              span(data-cdr={tlm: [{name:'/CS/CS_HkPacket_t/PassCounter'}], indicator:'text'}) ---
               
     footer.btn-group(role="group")      
-      button.btn.cdr-outline-primary(data-cdr={cmd:{name:'/AMC/Noop'},indicator:'cmd'}) No-Op    
-      button.btn.cdr-outline-primary(data-cdr={cmd:{name:'/AMC/Reset'},indicator:'cmd'}) Reset
+      button.btn.cdr-outline-primary(data-cdr={cmd:{name:'/CS/Noop'},indicator:'cmd'}) No-Op    
+      button.btn.cdr-outline-primary(data-cdr={cmd:{name:'/CS/Reset'},indicator:'cmd'}) Reset  

@@ -205,10 +205,10 @@
                 "config": {
                 },
                 "tables": [
-                    {"id": "DefAppTbl",  "title": "Applications",  "isDumpTable": false},
-                    {"id": "DefEepromTbl", "title": "EEPROM", "isDumpTable": false},
-                    {"id": "DefMemoryTbl", "title": "Memory", "isDumpTable": false},
-                    {"id": "DefTablesTbl", "title": "Tables", "isDumpTable": false}
+                    {"id": "DefAppTbl",    "title": "Applications", "isDumpTable": false},
+                    {"id": "DefEepromTbl", "title": "EEPROM",       "isDumpTable": false},
+                    {"id": "DefMemoryTbl", "title": "Memory",       "isDumpTable": false},
+                    {"id": "DefTablesTbl", "title": "Tables",       "isDumpTable": false}
                 ]
             }
         }

@@ -16,8 +16,8 @@ module.exports = class CfeCdrPlugin extends CdrPlugin {
       nodes: {
 				main: {
 					type: CdrPlugin.ContentType.LAYOUT,
-					shortDescription: 'Main',
-					longDescription: 'Main AMC.',
+					shortDescription: 'CS Main',
+					longDescription: 'Checksum Services Main',
 					filePath: '/main_layout.lyt'
 				},
 				hk: {
@@ -25,6 +25,36 @@ module.exports = class CfeCdrPlugin extends CdrPlugin {
 					shortDescription: 'CS Housekeeping',
 					longDescription: 'Checksum Services Housekeeping',
 					filePath: '/hk.pug'
+				},
+				cfecore: {
+					type: CdrPlugin.ContentType.PANEL,
+					shortDescription: 'CS CFE Core',
+					longDescription: 'Checksum Services CFE Core',
+					filePath: '/cfecore.pug'
+				},
+				eeprom: {
+					type: CdrPlugin.ContentType.PANEL,
+					shortDescription: 'CS EEPROM',
+					longDescription: 'Checksum Services EEPROM',
+					filePath: '/eeprom.pug'
+				},
+				memory: {
+					type: CdrPlugin.ContentType.PANEL,
+					shortDescription: 'CS Memory',
+					longDescription: 'Checksum Services Memory',
+					filePath: '/memory.pug'
+				},
+				os: {
+					type: CdrPlugin.ContentType.PANEL,
+					shortDescription: 'CS OS',
+					longDescription: 'Checksum Services OS',
+					filePath: '/os.pug'
+				},
+				tables: {
+					type: CdrPlugin.ContentType.PANEL,
+					shortDescription: 'CS Tables',
+					longDescription: 'Checksum Services Tables',
+					filePath: '/tables.pug'
 				}
       }
     };
