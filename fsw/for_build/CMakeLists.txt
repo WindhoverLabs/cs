@@ -127,33 +127,33 @@ add_airliner_app_unit_test(cs-ut
         ${CMAKE_CURRENT_SOURCE_DIR}/../src/cs_utils.h
         ${CMAKE_CURRENT_SOURCE_DIR}/../src/cs_verify.h
         ${CMAKE_CURRENT_SOURCE_DIR}/../src/cs_version.h
-        ${PROJECT_SOURCE_DIR}/tools/ut_assert/src/utassert.c
-        ${PROJECT_SOURCE_DIR}/tools/ut_assert/src/ut_cfe_es_hooks.c
-        ${PROJECT_SOURCE_DIR}/tools/ut_assert/src/ut_cfe_es_stubs.c
-        ${PROJECT_SOURCE_DIR}/tools/ut_assert/src/ut_cfe_evs_hooks.c
-        ${PROJECT_SOURCE_DIR}/tools/ut_assert/src/ut_cfe_evs_stubs.c
-        ${PROJECT_SOURCE_DIR}/tools/ut_assert/src/ut_cfe_fs_stubs.c
-        ${PROJECT_SOURCE_DIR}/tools/ut_assert/src/ut_cfe_psp_eeprom_stubs.c
-        ${PROJECT_SOURCE_DIR}/tools/ut_assert/src/ut_cfe_psp_memrange_stubs.c
-        ${PROJECT_SOURCE_DIR}/tools/ut_assert/src/ut_cfe_psp_memutils_stubs.c
-        ${PROJECT_SOURCE_DIR}/tools/ut_assert/src/ut_cfe_psp_ram_stubs.c
-        ${PROJECT_SOURCE_DIR}/tools/ut_assert/src/ut_cfe_psp_timer_stubs.c
-        ${PROJECT_SOURCE_DIR}/tools/ut_assert/src/ut_cfe_psp_watchdog_stubs.c
-        ${PROJECT_SOURCE_DIR}/tools/ut_assert/src/ut_cfe_sb_hooks.c
-        ${PROJECT_SOURCE_DIR}/tools/ut_assert/src/ut_cfe_sb_stubs.c
-        ${PROJECT_SOURCE_DIR}/tools/ut_assert/src/ut_cfe_tbl_hooks.c
-        ${PROJECT_SOURCE_DIR}/tools/ut_assert/src/ut_cfe_time_hooks.c
-        ${PROJECT_SOURCE_DIR}/tools/ut_assert/src/ut_cfe_time_stubs.c
-        ${PROJECT_SOURCE_DIR}/tools/ut_assert/src/utlist.c
-        ${PROJECT_SOURCE_DIR}/tools/ut_assert/src/ut_osapi_stubs.c
-        ${PROJECT_SOURCE_DIR}/tools/ut_assert/src/ut_osfileapi_stubs.c
-        ${PROJECT_SOURCE_DIR}/tools/ut_assert/src/uttest.c
-        ${PROJECT_SOURCE_DIR}/tools/ut_assert/src/uttools.c
+        ${PROJECT_SOURCE_DIR}/core/ut_assert/src/utassert.c
+        ${PROJECT_SOURCE_DIR}/core/ut_assert/src/ut_cfe_es_hooks.c
+        ${PROJECT_SOURCE_DIR}/core/ut_assert/src/ut_cfe_es_stubs.c
+        ${PROJECT_SOURCE_DIR}/core/ut_assert/src/ut_cfe_evs_hooks.c
+        ${PROJECT_SOURCE_DIR}/core/ut_assert/src/ut_cfe_evs_stubs.c
+        ${PROJECT_SOURCE_DIR}/core/ut_assert/src/ut_cfe_fs_stubs.c
+        ${PROJECT_SOURCE_DIR}/core/ut_assert/src/ut_cfe_psp_eeprom_stubs.c
+        ${PROJECT_SOURCE_DIR}/core/ut_assert/src/ut_cfe_psp_memrange_stubs.c
+        ${PROJECT_SOURCE_DIR}/core/ut_assert/src/ut_cfe_psp_memutils_stubs.c
+        ${PROJECT_SOURCE_DIR}/core/ut_assert/src/ut_cfe_psp_ram_stubs.c
+        ${PROJECT_SOURCE_DIR}/core/ut_assert/src/ut_cfe_psp_timer_stubs.c
+        ${PROJECT_SOURCE_DIR}/core/ut_assert/src/ut_cfe_psp_watchdog_stubs.c
+        ${PROJECT_SOURCE_DIR}/core/ut_assert/src/ut_cfe_sb_hooks.c
+        ${PROJECT_SOURCE_DIR}/core/ut_assert/src/ut_cfe_sb_stubs.c
+        ${PROJECT_SOURCE_DIR}/core/ut_assert/src/ut_cfe_tbl_hooks.c
+        ${PROJECT_SOURCE_DIR}/core/ut_assert/src/ut_cfe_time_hooks.c
+        ${PROJECT_SOURCE_DIR}/core/ut_assert/src/ut_cfe_time_stubs.c
+        ${PROJECT_SOURCE_DIR}/core/ut_assert/src/utlist.c
+        ${PROJECT_SOURCE_DIR}/core/ut_assert/src/ut_osapi_stubs.c
+        ${PROJECT_SOURCE_DIR}/core/ut_assert/src/ut_osfileapi_stubs.c
+        ${PROJECT_SOURCE_DIR}/core/ut_assert/src/uttest.c
+        ${PROJECT_SOURCE_DIR}/core/ut_assert/src/uttools.c
         
     INCLUDES
         ${CMAKE_CURRENT_SOURCE_DIR}/../src/
         ${CMAKE_CURRENT_SOURCE_DIR}/../unit_test/
-        ${PROJECT_SOURCE_DIR}/tools/ut_assert/inc/
+        ${PROJECT_SOURCE_DIR}/core/ut_assert/inc/
         
     VALGRIND_SUPPRESSION_FILE
         ${CMAKE_CURRENT_SOURCE_DIR}/../unit_test/valgrind.supp
