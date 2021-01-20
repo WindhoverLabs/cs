@@ -299,7 +299,7 @@
       struct: CS_HkPacket_t
   commands: 
     CS_CMD_MID: 
-      msgid: 
+      msgID: 
       commands: 
         Noop: 
           cc: 0
@@ -422,13 +422,13 @@
           cc: 39
           struct: CS_AppNameCmd_t
     CS_BACKGROUND_CYCLE_MID: 
-      msgid: 
+      msgID: 
       commands: 
         BackgroundCycle: 
           cc: 0
           struct: CS_NoArgsCmd_t
     CS_SEND_HK_MID: 
-      msgid: 
+      msgID: 
       commands: 
         SendHK: 
           cc: 0
