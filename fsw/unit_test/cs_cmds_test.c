@@ -125,17 +125,19 @@ void CS_ResetCmd_Test(void)
 void CS_BackgroundCheckCmd_Test_InvalidMsgLength(void)
 {
     CS_NoArgsCmd_t   CmdPacket;
-
-    CFE_SB_InitMsg (&CmdPacket, CS_CMD_MID, 10, TRUE);
+    char			 ExpectedEventText[CFE_EVS_MAX_MESSAGE_LENGTH];
+    CFE_SB_InitMsg (&CmdPacket, CS_CMD_MID, 10, FALSE);
     CFE_SB_SetCmdCode((CFE_SB_MsgPtr_t)&CmdPacket, 1);
 
     /* Execute the function being tested */
     CS_BackgroundCheckCmd((CFE_SB_MsgPtr_t)(&CmdPacket));
     
     /* Verify results */
+    snprintf(ExpectedEventText, CFE_EVS_MAX_MESSAGE_LENGTH,
+    		"Invalid msg length: ID = 0x%04X, CC = 1, Len = 10, Expected = 8", CS_CMD_MID);
     UtAssert_True
-        (Ut_CFE_EVS_EventSent(CS_LEN_ERR_EID, CFE_EVS_ERROR, "Invalid msg length: ID = 0x189F, CC = 1, Len = 10, Expected = 8"),
-        "Invalid msg length: ID = 0x189F, CC = 1, Len = 10, Expected = 8");
+        (Ut_CFE_EVS_EventSent(CS_LEN_ERR_EID, CFE_EVS_ERROR, ExpectedEventText),
+        		ExpectedEventText);
 
     UtAssert_True (Ut_CFE_EVS_GetEventQueueDepth() == 1, "Ut_CFE_EVS_GetEventQueueDepth() == 1");
 
@@ -913,7 +915,7 @@ void CS_Cmds_Test_AddTestCases(void)
     UtTest_Add(CS_NoopCmd_Test, CS_Test_Setup, CS_Test_TearDown, "CS_NoopCmd_Test");
 
     UtTest_Add(CS_ResetCmd_Test, CS_Test_Setup, CS_Test_TearDown, "CS_ResetCmd_Test");
-    
+
     UtTest_Add(CS_BackgroundCheckCmd_Test_InvalidMsgLength, CS_Test_Setup, CS_Test_TearDown, "CS_BackgroundCheckCmd_Test_InvalidMsgLength");
     UtTest_Add(CS_BackgroundCheckCmd_Test_BackgroundCfeCore, CS_Test_Setup, CS_Test_TearDown, "CS_BackgroundCheckCmd_Test_BackgroundCfeCore");
     UtTest_Add(CS_BackgroundCheckCmd_Test_BackgroundOS, CS_Test_Setup, CS_Test_TearDown, "CS_BackgroundCheckCmd_Test_BackgroundOS");
@@ -923,7 +925,7 @@ void CS_Cmds_Test_AddTestCases(void)
     UtTest_Add(CS_BackgroundCheckCmd_Test_BackgroundApp, CS_Test_Setup, CS_Test_TearDown, "CS_BackgroundCheckCmd_Test_BackgroundApp");
     UtTest_Add(CS_BackgroundCheckCmd_Test_Default, CS_Test_Setup, CS_Test_TearDown, "CS_BackgroundCheckCmd_Test_Default");
     UtTest_Add(CS_BackgroundCheckCmd_Test_Disabled, CS_Test_Setup, CS_Test_TearDown, "CS_BackgroundCheckCmd_Test_Disabled");
-    
+
     UtTest_Add(CS_DisableAllCSCmd_Test, CS_Test_Setup, CS_Test_TearDown, "CS_DisableAllCSCmd_Test");
 
     UtTest_Add(CS_EnableAllCSCmd_Test, CS_Test_Setup, CS_Test_TearDown, "CS_EnableAllCSCmd_Test");

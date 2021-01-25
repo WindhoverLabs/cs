@@ -458,6 +458,7 @@ void CS_VerifyCmdLength_Test_InvalidMsgLength(void)
 {
     boolean           Result;
     CS_OneShotCmd_t   CmdPacket;
+    char			  ExpectedEventText[CFE_EVS_MAX_MESSAGE_LENGTH];
 
     CFE_SB_InitMsg (&CmdPacket, CS_CMD_MID, sizeof(CS_OneShotCmd_t), TRUE);
     CFE_SB_SetCmdCode((CFE_SB_MsgPtr_t)&CmdPacket, 88);
@@ -470,9 +471,11 @@ void CS_VerifyCmdLength_Test_InvalidMsgLength(void)
     Result = CS_VerifyCmdLength((CFE_SB_MsgPtr_t)(&CmdPacket), 99);
     
     /* Verify results */
+    snprintf(ExpectedEventText, CFE_EVS_MAX_MESSAGE_LENGTH,
+    		"Invalid msg length: ID = 0x%04X, CC = 88, Len = 20, Expected = 99", CS_CMD_MID);
     UtAssert_True
-        (Ut_CFE_EVS_EventSent(CS_LEN_ERR_EID, CFE_EVS_ERROR, "Invalid msg length: ID = 0x189F, CC = 88, Len = 20, Expected = 99"),
-        "Invalid msg length: ID = 0x189F, CC = 88, Len = 20, Expected = 99");
+        (Ut_CFE_EVS_EventSent(CS_LEN_ERR_EID, CFE_EVS_ERROR, ExpectedEventText),
+        		ExpectedEventText);
 
     UtAssert_True(CS_AppData.CmdErrCounter == 1, "CS_AppData.CmdErrCounter == 1");
 
@@ -1016,6 +1019,7 @@ void CS_BackgroundApp_Test_Nominal(void)
     /* Set to prevent CS_ComputeApp from returning an error */
     Ut_CFE_TBL_SetReturnCode(UT_CFE_TBL_GETADDRESS_INDEX, CFE_SUCCESS, 1);
     Ut_CFE_TBL_ContinueReturnCodeAfterCountZero(UT_CFE_TBL_GETADDRESS_INDEX);
+    Ut_CFE_ES_SetFunctionHook(UT_CFE_ES_GETAPPINFO_INDEX, &CS_UTILS_TEST_CFE_ES_GetAppInfoHook1);
 
     /* Execute the function being tested */
     Result = CS_BackgroundApp();
