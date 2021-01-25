@@ -62,9 +62,7 @@ add_airliner_app_def(cs
     INCLUDES
         ${CMAKE_CURRENT_SOURCE_DIR}/../src/
 
-    DESIGN_DOCS ${CMAKE_CURRENT_SOURCE_DIR}/detail_doxy.in    
-    
-    DESIGN_DEFINITION   ${CMAKE_CURRENT_SOURCE_DIR}/cs_msg_overrides.json 
+    DESIGN_DOCS ${CMAKE_CURRENT_SOURCE_DIR}/detail_doxy.in
     
     REFERENCE_CONFIG
         ${PROJECT_SOURCE_DIR}/apps/cs/fsw/mission_inc
