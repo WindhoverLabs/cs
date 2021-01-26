@@ -71,7 +71,7 @@ buildliner_add_app_def(cs
 
 
 
-buildliner_add_app_def(cs-ut 
+buildliner_add_app_unit_test(cs-ut 
     NO_HELGRIND     
     NO_MASSIF  
    
